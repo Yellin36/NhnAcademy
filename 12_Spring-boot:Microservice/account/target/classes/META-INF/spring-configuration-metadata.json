@@ -1,0 +1,36 @@
+{
+  "groups": [
+    {
+      "name": "com.nhn.account.system",
+      "type": "com.nhnacademy.edu.springboot.account.config.SystemVersionProperties",
+      "sourceType": "com.nhnacademy.edu.springboot.account.config.SystemVersionProperties"
+    },
+    {
+      "name": "management.endpoint.counter",
+      "type": "com.nhnacademy.edu.springboot.account.actuator.endpoint.CountEndPoint",
+      "sourceType": "com.nhnacademy.edu.springboot.account.actuator.endpoint.CountEndPoint"
+    }
+  ],
+  "properties": [
+    {
+      "name": "com.nhn.account.system.version",
+      "type": "java.lang.String",
+      "sourceType": "com.nhnacademy.edu.springboot.account.config.SystemVersionProperties"
+    },
+    {
+      "name": "management.endpoint.counter.cache.time-to-live",
+      "type": "java.time.Duration",
+      "description": "Maximum time that a response can be cached.",
+      "sourceType": "com.nhnacademy.edu.springboot.account.actuator.endpoint.CountEndPoint",
+      "defaultValue": "0ms"
+    },
+    {
+      "name": "management.endpoint.counter.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable the counter endpoint.",
+      "sourceType": "com.nhnacademy.edu.springboot.account.actuator.endpoint.CountEndPoint",
+      "defaultValue": true
+    }
+  ],
+  "hints": []
+}

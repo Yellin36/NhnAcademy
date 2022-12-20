@@ -1,0 +1,8 @@
+
+
+java:S1450"]Remove the "clientReceiver" field and declare it as a local variable in the relevant methods.(ôĞ¿ßÿÿÿÿÿ8¤ô³÷¾0
+w
+java:S1450"[Remove the "clientSender" field and declare it as a local variable in the relevant methods.(§²8¥ô³÷¾0
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(ˆ”—úÿÿÿÿ8‘µ÷¾0
+T	java:S106"9Replace this use of System.out or System.err by a logger.(êöĞf8“‘µ÷¾0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(ğÉ®™8©ô³÷¾0

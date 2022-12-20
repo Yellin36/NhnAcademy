@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: #CDEFDE;
+            border-width: 5px;
+            border-color: red;
+        }
+        .box-top {
+            border-top-style: dotted;
+        }
+        .box-bottom {
+            border-bottom-style: groove;
+        }
+        .box-left {
+            border-left-style: dotted;
+        }
+        .box-right {
+            border-right-style: dashed;
+        }
+    </style>
+    <body>
+        <div>
+            <div>
+                <div class="box box-bottom " style="float: left;"></div>
+                <div style="padding: 10px; float:left;"></div>
+                <div class="box box-top" style="float:left"></div>
+            </div>
+            
+            <div>
+                <div class="box box-left" style="float: left;"></div>
+                <div style="padding: 10px; float:left;"></div>
+                <div class="box box-right" style="float: left;"></div>
+            </div>
+        </div>
+    </body>
+</html>

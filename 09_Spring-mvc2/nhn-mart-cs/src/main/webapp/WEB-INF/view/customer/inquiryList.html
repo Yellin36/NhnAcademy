@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>고객 페이지</title>
+</head>
+<body>
+<h1>NHN 마트 고객센터</h1>
+<hr>
+<span th:text="${session.sessionId + ' 님 환영합니다.'}"></span>
+<button onclick="location.href='/logout';">로그아웃</button>
+<hr>
+<div style="width: 80%">
+    <b>문의 목록 </b>
+    <button onclick="location.href='/customer/inquiry'" style="float: right">문의 작성</button>
+</div>
+<br/>
+<table border="1" style="border-collapse: collapse; width: 80%">
+    <tr>
+        <th style="width:5%">번호</th>
+        <th style="width:55%">제목</th>
+        <th style="width:10%">분류</th>
+        <th style="width:20%">작성일시</th>
+        <th style="width:10%">답변여부</th>
+    </tr>
+    <tr th:each="post : ${posts}" style="text-align: center">
+        <td th:text="${postStat.index + 1}"></td>
+        <td><a th:href="@{/customer/list/{id}(id=${post.id})}"><span th:text="${post.title}"></span></a></td>
+        <td th:text="${post.postType.getPostType()}"></td>
+        <td th:text="${post.writeTime}"></td>
+        <td><span th:text="${post.answerId == null ? 'X' : 'O'}"></span></td>
+    </tr>
+</table>
+</body>
+</html>

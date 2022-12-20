@@ -1,0 +1,31 @@
+header {
+    width: 100%;
+    overflow: auto;
+}
+header h1 {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0px 0px 0px;
+    background-color:#ccd5ae;
+    float: left;
+}
+#date {
+    width: 40%;
+    float: left;
+    text-align: center;
+    color: #588157;
+    font-weight: 1000;
+}
+.previousMonth {
+    width: 30%;
+    float: left;
+    color: #588157;
+    font-weight: 1000;
+}
+.nextMonth {
+    width: 30%;
+    float: left;
+    text-align: right;
+    color: #588157;
+    font-weight: 1000;
+}

@@ -1,0 +1,38 @@
+.side {
+    width: 39%;
+    height: 780px;
+    margin-top : 41.33px;
+    float: right;
+    border: 1px solid #d4a373;
+}
+#title {
+    color: #d4a373;
+    font-weight: 1000;
+    margin: 10px;
+}
+#deleteButton {
+    float: right;
+    background-color: #d4a373;
+    border: 1px solid #d4a373;
+    margin: 1px;
+}
+#content {
+    width: 100%;
+    height: 750px;
+    color: black;
+    text-align: left;
+}
+.task {
+    width: 90%;
+    margin-top: 5px;
+    margin-left: 10px;
+    overflow-y: auto;
+}
+checkbox {
+    width: 100px;
+    color: black;
+    text-align: left;
+}
+.button {
+    float: left;
+}

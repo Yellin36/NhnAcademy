@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+        .child {
+            width: 100px;
+            height: 100px;
+            font-size: 20pt;
+            text-align: center;
+            line-height: 100px;
+        }
+        .child:nth-child(1) {
+            background-color: skyblue;
+            flex:2;
+        }
+        .child:nth-child(2) {
+            background-color: wheat;
+            flex:1;
+        }
+        .child:nth-child(3) {
+            background-color: greenyellow;
+            flex:none;
+            width: 100px;
+            height: 200px;
+        }
+    </style>
+    <body>
+        <div class="container">
+            <div class="child">flex:2</div>
+            <div class="child">flex:1</div>
+            <div class="child">flex:1</div>
+        </div>
+    </body>
+</html>

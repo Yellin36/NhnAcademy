@@ -1,0 +1,48 @@
+GET /residents?page=0&size=3 HTTP/1.1
+Host: localhost:8080
+
+###
+
+GET /residents HTTP/1.1
+Host: localhost:8080
+
+###
+
+POST /residents HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "residentSerialNumber" : 26,
+  "name" : "박넷",
+  "id" : "user26",
+  "password" : "1234",
+  "email" : "yerin6864@gmail.com",
+  "residentRegistrationNumber" : "000000-0000000",
+  "genderCode" : "여",
+  "birthDate" : "2019-12-31T23:59:59",
+  "birthPlaceCode" : "자택",
+  "registrationBaseAddress" : "경기도 성남시 분당구 대왕판교로645번길"
+}
+###
+
+
+PUT /residents/13 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "deathDate" : "2019-12-31T23:59:59",
+  "deathPlaceCode" : "주택",
+  "deathPlaceAddress" : "저쪽 어딘가"
+}
+
+###
+
+GET /residents/13 HTTP/1.1
+Host: localhost:8080
+
+###
+
+DELETE /residents/13 HTTP/1.1
+Host: localhost:8080

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>관리자 페이지</title>
+</head>
+<body>
+<h1>NHN 마트 고객센터</h1>
+<hr>
+<span th:text="${session.sessionId + ' 님 어서오세요.'}"></span>
+<button onclick="location.href='/logout';">로그아웃</button>
+<hr>
+<b>문의 목록</b>
+<div style="background-color: gainsboro; width: 80%">
+    <input type="radio" name='postType' onclick="location.href='/admin/list'" th:checked="${type == null}">전체
+    <span th:each="post : ${T(com.nhnacademy.springmvc.domain.PostType).values()}">
+        <input type="radio" name="postType" th:value="${post}"
+               th:onclick="'location.href=\'' + @{/admin/list(type=${post})} + '\''"
+               th:checked="${post.toString() == type}">
+        <span th:text="${post.getPostType()}"></span>
+    </span>
+</div>
+<table border="1" style="border-collapse: collapse; width: 80%">
+    <tr>
+        <th style="width: 5%;">번호</th>
+        <th style="width: 10%;">작성자</th>
+        <th style="width: 45%;">제목</th>
+        <th style="width: 10%;">분류</th>
+        <th style="width: 20%;">작성일시</th>
+        <th style="width: 10%;"></th>
+    </tr>
+    <tr th:each="post : ${posts}" style="text-align: center">
+        <td th:text="${postStat.index + 1}"></td>
+        <td th:text="${post.writer}"></td>
+        <td th:text="${post.title}"></td>
+        <td th:text="${post.postType.getPostType()}"></td>
+        <td th:text="${post.writeTime}"></td>
+        <td><a th:href="@{/admin/answer/{id}(id=${post.id})}">답변 작성하기</a></td>
+    </tr>
+</table>
+
+</body>
+</html>

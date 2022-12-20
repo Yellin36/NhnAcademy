@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.nhnacademy.jdbc.board.domains.comment.mapper.CommentMapper">
+    <select id="getCommentCountByPostId" resultType="int">
+        select Count(*)
+        from BoardComments
+        where post_id = #{postId}
+    </select>
+
+    <select id="selectCommentById" resultType="com.nhnacademy.jdbc.board.domains.comment.domain.Comment">
+        select *
+        from BoardComments
+        where id = #{id}
+    </select>
+
+    <select id="selectCommentsByPostId" resultType="com.nhnacademy.jdbc.board.domains.comment.domain.Comment">
+        select *
+        from BoardComments
+        where post_id = #{postId}
+    </select>
+
+    <insert id="insertComment" parameterType="com.nhnacademy.jdbc.board.domains.comment.domain.Comment">
+        insert into BoardComments (post_id, user_id, content, created_at, updated_at)
+        values (#{postId}, #{writer}, #{content}, now(), null)
+    </insert>
+
+    <update id="updateComment">
+        update BoardComments
+        set content    = #{content},
+            updated_at = now()
+        where id = #{commentId}
+    </update>
+
+    <delete id="deleteByPostId">
+        delete
+        from BoardComments
+        where post_id = #{postId}
+    </delete>
+
+    <delete id="deleteById">
+        delete
+        from BoardComments
+        where id = #{id}
+    </delete>
+</mapper>

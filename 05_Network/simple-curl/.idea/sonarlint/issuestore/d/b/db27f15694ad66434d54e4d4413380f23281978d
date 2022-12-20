@@ -1,0 +1,34 @@
+
+¤
+java:S1192N"Define a constant instead of duplicating this literal "----------------------------------------------------------------------------" 3 times.(ª¨ÅÕ
+7
+java:S16435"Use a StringBuilder instead.(šö‹ğıÿÿÿÿ
+h
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 31 to the 15 allowed.(‰§¤Ú
+S	java:S106"9Replace this use of System.out or System.err by a logger.(å»ëÿüÿÿÿÿ
+?
+java:S1197"*Move the array designators [] to the type.(‹ÔĞ]
+E
+java:S1197!"*Move the array designators [] to the type.(µ…“‘úÿÿÿÿ
+Q	java:S125:"<This block of commented-out lines of code should be removed.(Êû¶ï
+N	java:S106D"9Replace this use of System.out or System.err by a logger.(Ñ¦
+S	java:S106F"9Replace this use of System.out or System.err by a logger.(÷´¿•øÿÿÿÿ
+N	java:S106M"9Replace this use of System.out or System.err by a logger.(™Ãø¤
+N	java:S106N"9Replace this use of System.out or System.err by a logger.(ª¨ÅÕ
+N	java:S106O"9Replace this use of System.out or System.err by a logger.( ØŞÃ
+N	java:S106W"9Replace this use of System.out or System.err by a logger.(ª¨ÅÕ
+S	java:S106X"9Replace this use of System.out or System.err by a logger.(ØâİÏıÿÿÿÿ
+N	java:S106Y"9Replace this use of System.out or System.err by a logger.(•¨€«
+S	java:S106Z"9Replace this use of System.out or System.err by a logger.(¡ƒ³şÿÿÿÿÿ
+S	java:S106["9Replace this use of System.out or System.err by a logger.(ÍŸ¡öüÿÿÿÿ
+N	java:S106\"9Replace this use of System.out or System.err by a logger.(áĞæï
+N	java:S106]"9Replace this use of System.out or System.err by a logger.(€†Ú¦
+M	java:S106^"9Replace this use of System.out or System.err by a logger.(ÎÿÄr
+S	java:S106_"9Replace this use of System.out or System.err by a logger.(·Ì®Îşÿÿÿÿ
+S	java:S106`"9Replace this use of System.out or System.err by a logger.(¸–¥çıÿÿÿÿ
+N	java:S106d"9Replace this use of System.out or System.err by a logger.(ª¨ÅÕ
+Q
+java:S1128
+"/Remove this unused import 'java.sql.SQLOutput'.(ê¤òÃùÿÿÿÿ8úÍ´¦¿0
+O
+java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8ûÍ´¦¿0

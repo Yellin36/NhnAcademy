@@ -1,0 +1,31 @@
+
+W
+java:S11419"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8¨Ñ§Ù¿0
+Y
+java:S4973d"<Strings and Boxed types should be compared using "equals()".(ù­›8©Ñ§Ù¿0
+f
+java:S2095="DUse try-with-resources or close this "Socket" in a "finally" clause.(æ³íùüÿÿÿÿ8ØÒ§Ù¿0
+k
+java:S1450"URemove the "reader" field and declare it as a local variable in the relevant methods.(ú§Âµ
+r
+java:S1450"]Remove the "serverReceiver" field and declare it as a local variable in the relevant methods.(çÉ [
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Šªòõşÿÿÿÿ
+M	java:S106"9Replace this use of System.out or System.err by a logger.(¼ìé)
+P
+java:S1117&":Rename "socket" which hides the field declared at line 14.( ¡² 
+S	java:S106)"9Replace this use of System.out or System.err by a logger.(ÉÎ÷™øÿÿÿÿ
+C	java:S1085")Either remove or fill this block of code.(ÄèÑÛşÿÿÿÿ
+Z	java:S106:"9Replace this use of System.out or System.err by a logger.(øÉ¤‹úÿÿÿÿ8ğÒ§Ù¿0
+E	java:S108>")Either remove or fill this block of code.(óûìœ8òÒ§Ù¿0
+U	java:S106D"9Replace this use of System.out or System.err by a logger.(ÏÎ†€8÷Ò§Ù¿0
+Z	java:S106I"9Replace this use of System.out or System.err by a logger.(–Ò®Âıÿÿÿÿ8ıÒ§Ù¿0
+Z	java:S106e"9Replace this use of System.out or System.err by a logger.(¬œ¶ºøÿÿÿÿ8Ó§Ù¿0
+F
+java:S1197s"*Move the array designators [] to the type.(£ü¨28ÿÒ§Ù¿0
+Z	java:S106u"9Replace this use of System.out or System.err by a logger.(ñ—¸½úÿÿÿÿ8‚Ó§Ù¿0
+Z	java:S106x"9Replace this use of System.out or System.err by a logger.(¿ß¹Òıÿÿÿÿ8ûÚ©Ù¿0
+L
+java:S1197y"*Move the array designators [] to the type.(™ø‡ÿÿÿÿÿ8ƒÓ§Ù¿0
+E	java:S108~")Either remove or fill this block of code.(ï­£Ä8…Ó§Ù¿0
+E
+java:S1068"*Remove this unused "socket" private field.(Å’¬Úşÿÿÿÿ

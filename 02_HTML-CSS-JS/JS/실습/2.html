@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./css/basic.css" />
+        <script>
+            /*
+                사용할 아이디를 설정 합니다.
+                본인을 식별할 수 있는 고유값을 아이디로 사용해주세요.
+                ex) marco or marco@nhnacademy.com or ...
+             */
+            const userId="yerin";
+            window.addEventListener("DOMContentLoaded",function(){
+               getEvents(userId,"2022-09-26");
+               getEvents(userId,"2022-09-27");
+               getEvents(userId,"2022-09-28");
+               getEvents(userId,"2022-09-29");
+               getEvents(userId,"2022-09-30");
+            });
+
+            function getEvents( userId="marco" ,targetDate="2022-09-29"){
+                
+                const url = `http://133.186.211.156:8100/api/${userId}/calendars/day/${targetDate}`;
+                const option = {
+                    method : "GET"
+                };
+
+                //fetch의 반환값이 promise이기때문에 코드가 간결해진다.
+                fetch(url,option)
+                    .then(function(response){
+                        return response.json()
+                    }).then(function(result){
+                        const todo = document.getElementById("todo-" + targetDate);
+                        for(let i=0; i<result.length; i++){
+                            const id = result[i].id;
+                            const userId = result[i].userId;
+                            const subject = result[i].subject;
+                            const eventDt = result[i].eventDt;
+                            console.log("id",id);
+                            console.log("userId:",userId);
+                            console.log("subject:",subject);
+                            console.log("eventDt:",eventDt);
+                            const li = document.createElement("li");
+                            li.appendChild(document.createTextNode(subject));
+                            li.setAttribute("id",id);
+                            todo.appendChild(li);
+                        }
+                    });
+            }
+
+            function saveEvent(){
+
+                const subject=document.getElementById("subject");
+                const eventDt=document.getElementById("eventDt");
+
+                if(eventDt.value==""){
+                    alert("Date를 선택해 주세요!");
+                    eventDt.focus();
+                    return false;
+                }else if(subject.value == ""){
+                    alert("제목을 입력해 주세요!");
+                    subject.focus();
+                    return false;
+                }
+
+                /*
+                    promise는 생성과 동시에 실행됩니다.
+                */
+                const data = {
+                        "subject" : subject.value,
+                        "eventDt" : eventDt.value
+                }
+                const url = `http://133.186.211.156:8100/api/${userId}/calendars/events`;
+                const option = {
+                    method : "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                };
+                fetch(url, option)
+                    .then(function(response){
+                        return response.json;
+                    })
+                    .then(function(result){
+                        console.log(result.message);
+                        console.log(result.id);
+                        alert("등록완료!");
+                        location.reload();
+                    });
+            }
+
+        </script>
+    </head>
+    <body>
+        <div>
+            <select id="eventDt" name="eventDt">
+                <option value="">Date 선택</option>
+                <option value="2022-09-26">2022-09-26(월)</option>
+                <option value="2022-09-27">2022-09-27(화)</option>
+                <option value="2022-09-28">2022-09-28(수)</option>
+                <option value="2022-09-29">2022-09-29(목)</option>
+                <option value="2022-09-30">2022-09-30(금)</option>
+            </select>
+            <input type="text" id="subject" name="subject" />
+            <button type="button" onclick="saveEvent()">등록</button>
+        </div>
+
+        <h1>2022-09-26 TODO LIST</h1>
+        <ul id="todo-2022-09-26"></ul>
+        <h1>2022-09-27 TODO LIST</h1>
+        <ul id="todo-2022-09-27"></ul>
+        <h1>2022-09-28 TODO LIST</h1>
+        <ul id="todo-2022-09-28"></ul>
+        <h1>2022-09-29 TODO LIST</h1>
+        <ul id="todo-2022-09-29"></ul>
+        <h1>2022-09-30 TODO LIST</h1>
+        <ul id="todo-2022-09-30"></ul>
+        <hr/>
+        <h1>script</h1>
+        <xmp>
+            <script>
+                /*
+                    사용할 아이디를 설정 합니다.
+                    본인을 식별할 수 있는 고유값을 아이디로 사용해주세요.
+                    ex) marco or marco@nhnacademy.com or ...
+                 */
+                const userId="marco";
+                window.addEventListener("DOMContentLoaded",function(){
+                   getEvents(userId,"2022-09-26");
+                   getEvents(userId,"2022-09-27");
+                   getEvents(userId,"2022-09-28");
+                   getEvents(userId,"2022-09-29");
+                   getEvents(userId,"2022-09-30");
+                });
+    
+                function getEvents( userId="marco" ,targetDate="2022-09-29"){
+                    
+                    const url = `http://133.186.211.156:8100/api/${userId}/calendars/day/${targetDate}`;
+                    const option = {
+                        method : "GET"
+                    };
+    
+                    fetch(url,option)
+                        .then(function(response){
+                            return response.json()
+                        }).then(function(result){
+                            const todo = document.getElementById("todo-" + targetDate);
+                            for(let i=0; i<result.length; i++){
+                                const id = result[i].id;
+                                const userId = result[i].userId;
+                                const subject = result[i].subject;
+                                const eventDt = result[i].eventDt;
+                                console.log("id",id);
+                                console.log("userId:",userId);
+                                console.log("subject:",subject);
+                                console.log("eventDt:",eventDt);
+                                const li = document.createElement("li");
+                                li.appendChild(document.createTextNode(subject));
+                                li.setAttribute("id",id);
+                                todo.appendChild(li);
+                            }
+                        });
+                }
+    
+                function saveEvent(){
+    
+                    const subject=document.getElementById("subject");
+                    const eventDt=document.getElementById("eventDt");
+    
+                    if(eventDt.value==""){
+                        alert("Date를 선택해 주세요!");
+                        eventDt.focus();
+                        return false;
+                    }else if(subject.value == ""){
+                        alert("제목을 입력해 주세요!");
+                        subject.focus();
+                        return false;
+                    }
+    
+                    /*
+                        promise는 생성과 동시에 실행됩니다.
+                    */
+                    const data = {
+                            "subject" : subject.value,
+                            "eventDt" : eventDt.value
+                    }
+                    const url = `http://133.186.211.156:8100/api/${userId}/calendars/events`;
+                    const option = {
+                        method : "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(data),
+                    };
+                    fetch(url, option)
+                        .then(function(response){
+                            return response.json;
+                        })
+                        .then(function(result){
+                            console.log(result.message);
+                            console.log(result.id);
+                            alert("등록완료!");
+                            location.reload();
+                        });
+                }
+            </script>
+        </xmp>
+        <hr/>
+        <h1>html</h1>
+        <xmp>
+            <div>
+                <select id="eventDt" name="eventDt">
+                    <option value="">Date 선택</option>
+                    <option value="2022-09-26">2022-09-26(월)</option>
+                    <option value="2022-09-27">2022-09-27(화)</option>
+                    <option value="2022-09-28">2022-09-28(수)</option>
+                    <option value="2022-09-29">2022-09-29(목)</option>
+                    <option value="2022-09-30">2022-09-30(금)</option>
+                </select>
+                <input type="text" id="subject" name="subject" />
+                <button type="button" onclick="saveEvent()">등록</button>
+            </div>
+    
+            <h1>2022-09-26 TODO LIST</h1>
+            <ul id="todo-2022-09-26"></ul>
+            <h1>2022-09-27 TODO LIST</h1>
+            <ul id="todo-2022-09-27"></ul>
+            <h1>2022-09-28 TODO LIST</h1>
+            <ul id="todo-2022-09-28"></ul>
+            <h1>2022-09-29 TODO LIST</h1>
+            <ul id="todo-2022-09-29"></ul>
+            <h1>2022-09-30 TODO LIST</h1>
+            <ul id="todo-2022-09-30"></ul>
+        </xmp>
+        <br/><br/><br/><br/><br/>
+    </body>
+</html>

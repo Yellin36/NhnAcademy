@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.nhnacademy.jdbc.board.domains.post.mapper.PostMapper">
+
+    <select id="getPostCount" resultType="int">
+        select count(*)
+        from BoardPosts
+        where deleted = false
+    </select>
+
+    <select id="getDeletedPostsCount" resultType="int">
+        select count(*)
+        from BoardPosts
+        where deleted = true;
+    </select>
+
+    <select id="getPostCountWithLike" resultType="int">
+        select count(*)
+        from BoardPosts p
+                 inner join BoardLikes l on p.id = l.post_id
+        where deleted = false
+          and l.user_id = #{userId}
+    </select>
+
+    <select id="getPostCountWithTitle" resultType="int">
+        select count(*)
+        from BoardPosts
+        where deleted = false
+          and title LIKE CONCAT('%', #{title}, '%')
+    </select>
+
+    <select id="selectExistPost" resultType="com.nhnacademy.jdbc.board.domains.post.domain.Post">
+        select *
+        from BoardPosts
+        where id = #{id}
+          and deleted = false
+    </select>
+
+    <select id="selectDeletedPost" resultType="com.nhnacademy.jdbc.board.domains.post.domain.Post">
+        select *
+        from BoardPosts
+        where deleted = true
+          and id = #{id}
+    </select>
+
+    <select id="selectExistPosts" resultType="com.nhnacademy.jdbc.board.domains.post.domain.Post">
+        select *
+        from BoardPosts
+        where deleted = false
+        order by id desc
+            limit #{limit}
+        offset #{offset}
+    </select>
+
+    <select id="selectExistPostsWithLike" resultType="com.nhnacademy.jdbc.board.domains.post.domain.Post">
+        select p.id,
+               p.user_id,
+               p.title,
+               p.content,
+               p.created_at,
+               p.modifier,
+               p.updated_at,
+               p.deleted
+        from BoardPosts p
+                 inner join BoardLikes l on p.id = l.post_id
+        where deleted = false
+          and l.user_id = #{userId}
+        order by id desc
+            limit #{limit}
+        offset #{offset}
+    </select>
+
+    <select id="selectExistPostsWithTitle" resultType="com.nhnacademy.jdbc.board.domains.post.domain.Post">
+        select *
+        from BoardPosts
+        where deleted = false
+          and title LIKE CONCAT('%', #{title}, '%')
+        order by id desc
+            limit #{limit}
+        offset #{offset}
+    </select>
+
+    <select id="selectDeletedPosts" resultType="com.nhnacademy.jdbc.board.domains.post.domain.Post">
+        select *
+        from BoardPosts
+        where deleted = true
+        order by id desc
+            limit #{limit}
+        offset #{offset}
+    </select>
+
+    <insert id="insertPost" parameterType="com.nhnacademy.jdbc.board.domains.post.domain.dto.PostInsertForm"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into BoardPosts(user_id, title, content, created_at, modifier, updated_at, deleted)
+        values (#{post.userId}, #{post.title}, #{post.content}, now(), null, null, false)
+    </insert>
+
+    <update id="updatePost">
+        update BoardPosts
+        set title      = #{title},
+            content    = #{content},
+            modifier   = #{modifier},
+            updated_at = now()
+        where id = #{postId}
+    </update>
+
+    <update id="deleteById">
+        update BoardPosts
+        set deleted = true
+        where id = #{id}
+    </update>
+
+    <update id="recoverById">
+        update BoardPosts
+        set deleted = false
+        where id = #{id}
+    </update>
+
+    <delete id="deletePermanentlyById">
+        delete
+        from BoardPosts
+        where id = #{id}
+    </delete>
+
+
+</mapper>

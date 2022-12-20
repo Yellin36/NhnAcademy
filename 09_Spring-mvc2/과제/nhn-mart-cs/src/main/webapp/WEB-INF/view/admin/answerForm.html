@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>문의 상세</title>
+</head>
+<body>
+<h1>NHN 마트 고객센터</h1>
+<hr>
+<b>문의 상세 내용</b><span th:text="${'(접수 번호 : ' + post.id + ')'}"></span>
+<hr>
+<table border="0" style="width: 80%">
+    <tr>
+        <th style="text-align: left; width: 20%">제목</th>
+        <th style="text-align: left;" th:text="${post.title}"></th>
+    </tr>
+    <tr>
+        <th style="text-align: left; width: 20%">분류</th>
+        <td th:text="${post.postType.getPostType()}"></td>
+    </tr>
+    <tr>
+        <th style="text-align: left; width: 20%">작성일시</th>
+        <td th:text="${post.writeTime}"></td>
+    </tr>
+    <tr>
+        <th style="text-align: left; width: 20%">작성자</th>
+        <td th:text="${post.writer}"></td>
+    </tr>
+    <tr>
+        <th style="text-align: left; width: 20%" colspan="2">본문</th>
+    </tr>
+    <tr>
+        <td th:text="${post.content}" colspan="2" style="border: solid 1px"></td>
+    </tr>
+</table>
+<b>첨부파일(
+    <spn th:if="${post.files != null}">
+        <span th:text="${post.files.size()}">개</span>)
+        <div colspan="2" style="width: 80%; height: 150px; overflow-x:auto; white-space:nowrap; padding: 10px; border: solid 1px">
+            <span th:each="file : ${post.files}">
+                <img th:src="@{/image(filename=${file})}"
+                     style="display:inline-block; height: 130px; margin-right: 10px">
+            </span>
+        </div>
+    </spn>
+    <span th:unless="${post.files != null}">없음)</span>
+</b>
+<hr>
+<form method="post" th:action="@{/admin/answer/{id}(id=${post.id})}">
+<div style="background-color: gainsboro; width: 80%; padding: 10px">
+    답글 작성
+    <hr>
+    <textarea name="content" style="width: 100%" rows="10"></textarea>
+    <hr>
+    <input type="submit" value="확인">
+</div>
+</form>
+</body>
+</html>

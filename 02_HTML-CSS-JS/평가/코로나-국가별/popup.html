@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/table.css">
+        <script type="text/javascript" src = "javascript/api2.js"></script>
+    </head>
+    <body>
+        <h1><span id="nationName"></span>의 코로나 현황</h1>
+        <script>getData()</script>
+        <table>
+            <thead>
+                <tr>
+                    <th>기준 날짜</th>
+                    <th>누적 확진자 수</th>
+                    <th>누적 사망자 수</th>
+                    <th>사망률</th>
+                </tr>
+            </thead>
+            <tbody id="tableContent">
+            </tbody>
+        </table>
+        
+    </body>
+</html>

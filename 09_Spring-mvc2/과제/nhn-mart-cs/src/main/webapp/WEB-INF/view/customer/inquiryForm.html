@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>문의 작성</title>
+</head>
+<body>
+<h1>NHN 마트 고객센터: 문의 작성</h1>
+<hr>
+<form method="post" action="/customer/inquiry" enctype="multipart/form-data">
+    <table border="0" style="width: 80%">
+        <tr>
+            <th style="text-align: left">제목</th>
+            <td><input type="text" name="title" style="width: 100%"/></td>
+        </tr>
+        <tr>
+            <th style="text-align: left">작성자</th>
+            <td><input type="text" name="writer" th:value="${session.sessionId}" disabled/></td>
+        </tr>
+        <tr style="background-color: gainsboro">
+            <th style="text-align: left">분류</th>
+            <td><span th:each="post : ${T(com.nhnacademy.springmvc.domain.PostType).values()}">
+                <input type="radio" name="postType" th:value="${post}" checked>
+                <span th:text="${post.getPostType()}"></span>
+            </span></td>
+        </tr>
+        <tr>
+            <th style="text-align: left" colspan="2">문의 내용</th>
+        </tr>
+        <tr>
+            <td colspan="2"><textarea name="content" style="width: 100%" rows="10"></textarea></td>
+        </tr>
+        <tr>
+            <th style="text-align: left">파일 첨부</th>
+            <td><input type="file" name="files" multiple accept="image/*"></td>
+        </tr>
+    </table>
+    <hr>
+    <input type="submit" value="확인"/>
+    <input type="button" onclick="location.href='/customer/list'" value="취소">
+</form>
+</body>
+</html>

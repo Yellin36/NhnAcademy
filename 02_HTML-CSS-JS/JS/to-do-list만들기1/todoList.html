@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/aside.css">
+
+        <script type="text/javascript" src="javascript/data.js"></script>
+        <script type="text/javascript" src="javascript/task.js"></script>
+        <script type="text/javascript" src="javascript/frame.js"></script>
+        <script type="text/javascript" src="javascript/calendar.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>To Do List </h1>
+            <div class="previousMonth" onclick="move(-1)">  &lt 이전 달</div>
+            <div id="date"></div>
+            <div class="nextMonth" onclick="move(+1)">다음 달 &gt</a></div>
+            <hr>
+        </header>
+        <main>    
+            <div id = "calendar" class="container column"></div>            
+        </main>
+        <aside>
+            <!-- <input id="button" type="button" value="월간 삭제" onclick="deleteAllTask()">
+            <input id="button" type="button" value="달력 삭제" onclick="deleteAllTask()"> -->
+            <div class="side">
+                <div>
+                    <span id="title"></span>
+                    <input id="deleteButton" type="button" value="전체 삭제하기" onclick="deleteAllTask()">
+                </div>
+                <div id="content" onclick="addTask()"></div>
+            </div>
+        </aside>
+        <script>
+            setCalendarDate();
+            drawCalendar();
+        </script>  
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/table.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+        <script text="text/javascript" src="js/api.js"></script>
+        
+    </head>
+    <body>
+        <h1>코로나19 현황</h1>
+        <header>
+            <div class="dateLine">
+                <div class="date">
+                    <span class="material-icons" id="previousYear" onclick="moveYear(-1)">chevron_left</span>
+                    <span id="year"></span>
+                    <span class="material-icons" id="nextYear" onclick="moveYear(+1)">navigate_next</span>
+                </div>
+                <div class="date">
+                    <span class="material-icons" id="previousMonth" onclick="moveMonth(-1)">chevron_left</span>
+                    <span id="month"></span>
+                    <span class="material-icons" id="nextMonth" onclick="moveMonth(+1)">navigate_next</span>
+                </div>
+            </div>
+        </header>
+        <script>curYear = 22; curMonth= 9; getData()</script>
+        <main>
+            <div id="dataChart">
+            </div>
+            <div id="dataTable">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>기준일</th>
+                            <th>누적(확진자 수)</th>
+                            <th>누적(사망자 수)</th>
+                            <th>업데이트일</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableContent"></tbody>
+                </table>
+            </div>
+        </main>
+    </body>
+</html>

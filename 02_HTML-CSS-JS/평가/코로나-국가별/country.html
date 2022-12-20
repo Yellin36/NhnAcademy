@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/table.css">
+
+       
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+        <script src="javascript/api.js"></script>
+        <script src="javascript/map.js"></script>
+        <script>google.charts.load('current', {
+            'packages':['geochart'],
+            'mapsApiKey': 'AIzaSyC42lH3UIXg-2dkzVnxzggpcjddYW_hRWQ'
+        });
+        google.charts.setOnLoadCallback(getMap);</script>
+        
+    </head>
+    <body>
+        <script>getData()</script>
+        <h1>전세계 코로나 현황</h1>
+        <div class="body">
+                <label class="left">
+                    대륙 : 
+                    <select onchange="setPage(this.value, curRow)">
+                        <option value="All" selected>전체</option>
+                        <option value="Africa">아프리카</option>
+                        <option value="Oceania">오세아니아</option>
+                        <option value="Europe">유럽</option>
+                        <option value="America">미국</option>
+                        <option value="Middle East">중동</option>
+                        <option value="Asia">아시아</option>
+                    </select>
+                </label>
+                <label class="right">
+                    목록 개수 
+                    <select onchange="setPage(curArea, this.value)">
+                        <option value="10" selected>10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </label>
+        </div>
+        <div class="body">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>국가</th>
+                        <th>누적 확진자 수</th>
+                        <th>누적 사망자 수</th>
+                        <th>사망률</th>
+                    </tr>
+                </thead>
+                <tbody id="tableContent"></tbody>
+            </table>
+        </div>
+        <div class="body">
+            <input type="button" id="firstButton" disabled value="&lt" onclick="clickButton(1)">
+            <span id="pageContent"></span>
+            <input type="button" id="lastButton" disabled value="&gt" onclick="clickButton(curLastPage)">
+        </div>
+        <div id="mapContent" class="map">
+            
+
+        </div>
+    </body>
+    <script></script>
+</html>

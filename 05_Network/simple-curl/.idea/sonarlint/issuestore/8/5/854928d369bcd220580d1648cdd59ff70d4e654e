@@ -1,0 +1,24 @@
+
+[	java:S107"AConstructor has 8 parameters, which is greater than 7 authorized.(Àã‡Çûÿÿÿÿ
+7
+java:S1643d"Use a StringBuilder instead.(İöÖùÿÿÿÿ
+g
+java:S2095X"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(ÉŞÜÃıÿÿÿÿ
+N	java:S106J"9Replace this use of System.out or System.err by a logger.(«”­
+N	java:S106K"9Replace this use of System.out or System.err by a logger.(ßÖ’Î
+N	java:S106L"9Replace this use of System.out or System.err by a logger.(«”­
+N	java:S106M"9Replace this use of System.out or System.err by a logger.(ùê€Ä
+N	java:S106N"9Replace this use of System.out or System.err by a logger.(¥ÈÂ
+N	java:S106O"9Replace this use of System.out or System.err by a logger.(¡§…µ
+N	java:S106P"9Replace this use of System.out or System.err by a logger.(¥½ğì
+N	java:S106Q"9Replace this use of System.out or System.err by a logger.(Ë—Æ®
+[
+java:S2147i"ECombine this catch with the one at line 103, which has the same body.(ï­£Ä
+E
+java:S1197Z"*Move the array designators [] to the type.(¢ËÇéûÿÿÿÿ
+>	java:S108g")Either remove or fill this block of code.(‹±ÃÆ
+>	java:S108i")Either remove or fill this block of code.(ï­£Ä
+[
+java:S1128">Remove this unused import 'java.nio.charset.StandardCharsets'.(ï˜ŞÛ8ëêÉ¥¿0
+J
+java:S1128"-Remove this unused import 'java.util.Base64'.(ëŠ»Õ8ëêÉ¥¿0

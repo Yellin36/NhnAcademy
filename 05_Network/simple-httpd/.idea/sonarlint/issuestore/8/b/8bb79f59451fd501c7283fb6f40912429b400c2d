@@ -1,0 +1,8 @@
+
+V
+java:S2134"@Don't extend "Thread", since the "run" method is not overridden.(è…È†
+M	java:S106"9Replace this use of System.out or System.err by a logger.(¼ìé)
+Q	java:S125"<This block of commented-out lines of code should be removed.(Ìô¯Â
+>	java:S108")Either remove or fill this block of code.(ï­£Ä
+E
+java:S1068"*Remove this unused "socket" private field.(Å’¬Úþÿÿÿÿ

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            .article {
+                background-color: lightgrey; 
+                margin:10px; 
+                padding: 10px;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="width:100%; height:100%">
+            <div style="width:100%; float:left;background-color: green;">
+                <h1>HEADER</h1>
+            </div>
+            <div style="width:30%; height:280px; float:left; background-color: red;">
+                left
+            </div>
+            <div style="width:70%; height:280px;float:left; background-color: blue;">
+                <div class="article">
+                    <form method="post" action="http://httpbin.org/post">
+                        <label for="postContent">POST: </label>
+                        <input type="text" name="postContent">
+                        <input type="checkbox" name="check1">
+                        <input type="radio" name="radio" value="사람"> 사람<br>
+                        <input type="radio" name="radio" value="동물"> 동물 <br>
+                        <input type="radio" name="radio-another">
+                        <input type="range" name="range">
+                        <input type="date"name="date">
+                        <input type="search" name="search">
+                        <button type="submit">전송</button>
+
+                    </form>
+                </div>
+                <div class="article">
+                    <form method="get" action="http://httpbin.org/get" >
+                        <label for="getContent">GET: </label>
+                        <input type="text" name="getContent">
+                        <button type="submit">전송</button>
+                    </form>
+                </div>
+            </div>
+            <div style="width:100%;height:150px; float:left; background-color: yellow;;">
+                footer
+            </div>
+        </div>
+    </body>
+</html>

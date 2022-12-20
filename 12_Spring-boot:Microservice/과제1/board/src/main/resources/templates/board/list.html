@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NHN 게시판</title>
+    <link th:href="@{/css/button.css}" href="/css/button.css" rel="stylesheet">
+</head>
+<body>
+<h1>NHN 게시판</h1>
+<hr>
+<button onclick="location.href='/board/register'">게시글 등록</button>
+<button onclick="location.href='/'">뒤로가기</button>
+<hr>
+<div style="background-color: gainsboro; width: 80%">
+    <input type="radio" name='category' onclick="location.href='/board'" th:checked="${session.category == 'all'}">전체
+    <span th:if="${session.authority == 1}">
+        <input type="radio" name='category' onclick="location.href='/board?category=garage'" th:checked="${session.category == 'garage'}">삭제 보관함
+    </span>
+    <span th:unless="${session.authority == 1}">
+        <input type="radio" name='category' onclick="location.href='/board?category=like'" th:checked="${session.category == 'like'}">좋아요한 게시글
+    </span>
+    <form method="post" action="/board" style="float: right">
+        <input type="text" name="search" th:value="${session.category == 'search' ? title : ''}">
+        <input type="submit" value="검색">
+    </form>
+</div>
+
+<hr>
+<table border="1" style="border-collapse: collapse; width: 80%">
+  <tr>
+    <th width="5%">번호</th>
+    <th width="45%">제목</th>
+    <th width="20%">작성자(수정자)</th>
+    <th width="25%">작성일시</th>
+    <th width="5%">댓글수</th>
+  </tr>
+  <span th:each="post : ${posts}">
+        <tr style="text-align: center">
+            <td th:text="${(curPage -1 ) * 20 + postStat.index + 1}"></td>
+            <span th:if="${session.authority == 1 && session.category == 'garage'}">
+                <td><a th:href="@{/admin/board/{id}(id=${post.id})}" th:text="${post.title}"></a></td>
+            </span>
+            <span th:unless="${session.authority == 1 && session.category == 'garage'}">
+                <td><a th:href="@{/board/{id}(id=${post.id})}" th:text="${post.title}"></a></td>
+            </span>
+            <td th:text="${post.userId + '(' + (post.modifier == null ? '-' : post.modifier) + ')'}"></td>
+            <td th:text="${post.updatedAt == null ? post.createdAt : post.updatedAt + '(수정됨)'}"></td>
+            <td th:text="${post.commentCount}"></td>
+        </tr>
+    </span>
+</table>
+<hr>
+<div >
+    <button th:onclick="|location.href='@{/board(page=${(curPage - 10)/10*10+1})}'|" th:disabled="${curPage <= 10}">&lt</button>
+    <span th:with="start=${(curPage - 1) / 10 * 10}">
+    <span th:each="i : ${#numbers.sequence(start + 1, start + 10)}"
+          th:if="${i <= totalPage}">
+        <button th:onclick="|location.href='@{/board(page=${i})}'|" th:text="${i}"></button>
+    </span></span>
+    <button th:onclick="|location.href='@{/board(page=${(curPage + 10)/10*10+1})}'|"
+            th:disabled="${(curPage - 1) / 10 == (totalPage -1) /10}">&gt</button>
+</div>
+</body>
+<script>
+    const movePage = function(page) {
+        const URLSearch = new URLSearchParams(location.search);
+        URLSearch.set('page', String(page));
+        const newParam = URLSearch.toString();
+
+        window.open(location.pathname + '?' + newParam, '_self');
+    };
+</script>
+</html>

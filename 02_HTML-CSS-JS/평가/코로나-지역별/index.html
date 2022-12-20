@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/table.css">
+        <script type="text/javascript" src="js/scripts.js"></script>
+    </head>
+    <body>
+        <h1>지역별 코로나 확진 현황</h1>
+        <script>getDataByRegion(); </script>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>지역</th>
+                    <th>누적(확진자 수)</th>
+                </tr>
+            </thead>
+            <tbody id="tableContent"></tbody>
+        </table>
+        <div id="paging">
+            <input id="previousButton" type="button" onclick="movePage(getCurPage() - 1, totalPageCnt)" value="&lt">
+            <span id="pageContent"></span>
+            <input id="nextButton" type="button" onclick="movePage(getCurPage() + 1, totalPageCnt)" value="&gt">
+        </div>
+        <div id="formi"></div>
+    </body>
+</html>

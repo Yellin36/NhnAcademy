@@ -1,0 +1,27 @@
+package com.nhnacademy.office.repository.certificate_issue;
+
+import com.nhnacademy.office.entity.CertificateIssue;
+import com.nhnacademy.office.entity.Resident;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
+
+
+public interface CertificateIssueRepository extends CertificateIssueRepositoryCustom, JpaRepository<CertificateIssue, Long> {
+    boolean existsByResidentAndCertificateTypeCode(Resident resident, String certificateTypeCode);
+
+    boolean existsByCertificateConfirmationNumber(Long certificateConfirmationNumber);
+
+    Page<CertificateIssue> getAllByResident(Pageable pageable, Resident resident);
+
+    @Transactional
+    @Modifying
+    @Query("delete from CertificateIssue " +
+            "where resident.residentSerialNumber = :serialNumber")
+    void deleteByResidentSerialNumber(@Param("serialNumber") Long residentSerialNumber);
+}
+

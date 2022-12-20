@@ -1,0 +1,27 @@
+header, main {
+    width: 100%;
+}
+.dateLine {
+    width: 100%;
+    height: 32px;
+    background-color: #a39485;
+    border-radius: 10px;
+}
+.date {
+    width:50%;
+    text-align: center;
+    float: left;
+}
+#dataTable, #dataChart {
+    margin-top: 10px;
+    width: 48%;
+    height: 400px;
+    padding: 10px;
+    float : left;
+    overflow-y: auto;
+}
+.material-icons {
+    color: white;
+    border-radius: 50%;
+    margin: 5px;
+}

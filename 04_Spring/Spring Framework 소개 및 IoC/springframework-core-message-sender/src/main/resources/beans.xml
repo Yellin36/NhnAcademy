@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- annotation설정을 위해 추가-->
+    <context:annotation-config/>
+
+    <!-- @Required 애너테이션 사용을 위해 추가 -->
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+    <context:property-placeholder location="classpath:sender.properties"/>
+
+    <!-- byType으로 autowire 를 하려면 해당되는 type 의 bean 이 1개만 존재해야함-->
+<!--    <bean id="emailMessageSender" class="com.nhnacademy.edu.springframework.messagesender.EmailMessageSender" scope="singleton" >-->
+<!--    </bean>-->
+
+<!--    <bean id="smsMessageSender" class="com.nhnacademy.edu.springframework.messagesender.SmsMessageSender" scope="prototype" >-->
+<!--        <qualifier type="com.nhnacademy.edu.springframework.annotation.SMS"/>-->
+<!--    </bean>-->
+
+    <bean id="senderService" class="com.nhnacademy.edu.springframework.messagesender.Service" >
+        <!-- <constructor-arg ref="smsMessageSender"/> -->
+        <!-- <property name="messageSender" ref="smsMessageSender"/> -->
+    </bean>
+    <!--    <bean id="sendersService" class="com.nhnacademy.edu.springframework.messagesender.Services" >-->
+    <!--    </bean>-->
+</beans>

@@ -1,0 +1,15 @@
+
+P	java:S125"<This block of commented-out lines of code should be removed.(ü…µN
+Q	java:S125%"<This block of commented-out lines of code should be removed.(²½ïÂ
+T
+java:S1117,"9Rename "title" which hides the field declared at line 20.(½‰½–ûÿÿÿÿ
+S
+java:S1117-"8Rename "name" which hides the field declared at line 21.(íĞª¸ÿÿÿÿÿ
+k
+java:S1989/"PHandle the following exception that could be thrown by "getWriter": IOException.(¦ıšÅùÿÿÿÿ
+f
+java:S19892"PHandle the following exception that could be thrown by "getWriter": IOException.(é“ºŞ
+s
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(Íâ½Ôûÿÿÿÿ
+n
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(Ê§…ñ

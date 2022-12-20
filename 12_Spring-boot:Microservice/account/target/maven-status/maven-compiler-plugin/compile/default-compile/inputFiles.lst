@@ -1,0 +1,12 @@
+/Users/yerin/Desktop/springboot/account/src/main/java/com/nhnacademy/edu/springboot/account/domain/DefaultAccountService.java
+/Users/yerin/Desktop/springboot/account/src/main/java/com/nhnacademy/edu/springboot/account/domain/AccountRepository.java
+/Users/yerin/Desktop/springboot/account/src/main/java/com/nhnacademy/edu/springboot/account/config/SystemVersionProperties.java
+/Users/yerin/Desktop/springboot/account/src/main/java/com/nhnacademy/edu/springboot/account/health/CustomHealthIndicator.java
+/Users/yerin/Desktop/springboot/account/src/main/java/com/nhnacademy/edu/springboot/account/adapter/in/SystemController.java
+/Users/yerin/Desktop/springboot/account/src/main/java/com/nhnacademy/edu/springboot/account/AccountApplication.java
+/Users/yerin/Desktop/springboot/account/src/main/java/com/nhnacademy/edu/springboot/account/actuator/endpoint/CountEndPoint.java
+/Users/yerin/Desktop/springboot/account/src/main/java/com/nhnacademy/edu/springboot/account/domain/Account.java
+/Users/yerin/Desktop/springboot/account/src/main/java/com/nhnacademy/edu/springboot/account/adapter/in/AccountRestController.java
+/Users/yerin/Desktop/springboot/account/src/main/java/com/nhnacademy/edu/springboot/account/adapter/in/AccountWebController.java
+/Users/yerin/Desktop/springboot/account/src/main/java/com/nhnacademy/edu/springboot/account/adapter/in/ManagementController.java
+/Users/yerin/Desktop/springboot/account/src/main/java/com/nhnacademy/edu/springboot/account/domain/AccountService.java
